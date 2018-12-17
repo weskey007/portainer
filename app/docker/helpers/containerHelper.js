@@ -8,7 +8,9 @@ angular.module('portainer.docker')
   };
 
   helper.commandArrayToString = function(array) {
-    return array.join(' ');
+    return array.map(function(elem) {
+      return '\'' + elem + '\'';
+    }).join(' ');
   };
 
   helper.configFromContainer = function(container) {
